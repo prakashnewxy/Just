@@ -7,9 +7,18 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #eaeded;
             margin: 0;
             padding: 0;
+            color: #111;
+        }
+
+        header {
+            background-color: #232f3e;
+            padding: 10px 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
         }
 
         .container {
@@ -26,6 +35,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: transform 0.3s ease-in-out;
+            background-color: #fff;
         }
 
         .card:hover {
@@ -53,25 +63,54 @@
             margin-bottom: 15px;
         }
 
+        .price {
+            color: #b12704;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
         .btn {
             display: block;
             width: 100%;
             padding: 10px;
             text-align: center;
-            background-color: #007bff;
+            background-color: #ff9900;
             color: #fff;
             text-decoration: none;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #e68a00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #232f3e;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
+<header>
+    Amazon-Like Shopping App
+</header>
+
 <div class="container" id="productContainer">
     <!-- Product cards will be dynamically added here using JavaScript -->
 </div>
+
+<footer>
+    &copy; 2024 Amazon-Like Shopping App. All rights reserved.
+</footer>
 
 <script>
     const products = [
@@ -90,7 +129,7 @@
             <img src="${product.imageUrl}" alt="${product.name}">
             <div class="card-body">
                 <h3 class="card-title">${product.name}</h3>
-                <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+                <p class="card-text">Price: <span class="price">$${product.price.toFixed(2)}</span></p>
                 <a href="#" class="btn">Add to Cart</a>
             </div>
         `;
